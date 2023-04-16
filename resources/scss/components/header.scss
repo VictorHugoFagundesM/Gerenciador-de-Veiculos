@@ -1,0 +1,73 @@
+.site-header {
+    min-height: 70px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+    align-items: center;
+    -webkit-box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+    -moz-box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+    box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+    border-bottom: 1px solid #00000012;
+}
+
+.site-header .menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.site-header .menu .menu-item:hover {
+    color: rgb(0 0 0 / 52%);
+}
+
+.site-header span {
+    position: relative;
+}
+
+.site-header .logo {
+    cursor: pointer;
+}
+
+.site-header .logo span:before {
+    content: 'Rent';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 3.5rem;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    background-color: rgb(46, 45, 55);
+    transform: translate(5px, -4px);
+    font-size: 20px;
+}
+
+.site-header .logo b {
+    margin-left: 61px;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.site-header .menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.site-header .menu .user-info-container .user-info {
+    position: relative;
+    margin-left: 30px;
+    cursor: pointer;
+    padding-left: 30px;
+}
+
+.site-header .menu .user-info-container .user-info::before {
+    content: "\F2BD";
+    font-family: "Font Awesome 6 Free";
+    font-size: 24px;
+    position: absolute;
+    top: -9px;
+    left: -5px;
+}
