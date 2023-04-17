@@ -65,6 +65,33 @@
     padding-left: 30px;
 }
 
+.site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container {
+    position: absolute;
+    padding: 10px;
+    border-radius: 5px;
+    left: -25px;
+    background-color: white;
+    box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+    border: 1px solid #00000012;
+    width: 120px;
+    display: none;
+}
+
+.site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container .drop-item {
+    padding: 10px 0px !important;
+    width: 100%;
+    text-align: start;
+    display: block;
+}
+
+.site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container .drop-item:hover {
+    color: rgb(0 0 0 / 52%);
+}
+
+.site-header .menu .user-info-container .user-info.drop-menu:hover .drop-menu-container {
+    display: block;
+}
+
 .site-header .menu .user-info-container .user-info::before {
     content: "\F2BD";
     font-family: "Font Awesome 6 Free";
@@ -76,6 +103,7 @@
 .site-body {
     min-height: calc(100vh - 110px - 70px);
     background-color: rgb(224 225 235);
+    overflow: auto;
 }
 .site-footer {
     height: 110px;
@@ -128,9 +156,99 @@
 }
 
 
+form.form-container.login {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form.form-container .form-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00000012;
+}
+
+form.form-container .form-body {
+    margin: 20px 20px;
+}
+
+form.form-container .form-footer {
+    padding-top: 20px;
+    border-top: 1px solid #00000012;
+}
+
+form.form-container .form-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+form.form-container:not(.login) .form-footer button.btn {
+    min-width: 150px;
+}
+
+form.form-container:not(.login) .form-footer a.btn {
+    min-width: 100px;
+}
+
+form.form-container .form-group {
+    margin-bottom: 15px;
+}
+
+form.form-container .form-group label {
+    margin-bottom: 5px;
+}
+
+form.form-container.login .form-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.parsley-errors-list {
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.form-control.parsley-error, .form-control.parsley-error:focus {
+    border: 2px solid rgb(166 72 226);
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.parsley-errors-list * {
+    color: rgb(166 72 226) !important;
+    font-size: 12px !important;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
+
+.form-check-input:checked {
+    background-color: rgb(235 0 67);
+    border-color: rgb(235 0 67);
+}
+
+.form-check-input:focus {
+    border-color: rgb(235 0 67);
+    box-shadow: none;
+}
+
+.form-check {
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.form-check label {
+    margin: 0px !important;
+}
+
 * {
     font-size: 14px;
-    color: rgb(46, 45, 55);
+    color: rgb(63, 7, 23);
 }
 
 body {
@@ -140,6 +258,55 @@ body {
 a {
     text-decoration: inherit;
     color: inherit;
+}
+
+.btn.btn-primary {
+    background-color: rgb(235 0 67) !important;
+    border-color: rgb(235 0 67) !important;
+}
+
+.primary {
+    color: rgb(235 0 67) !important;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+.ml-auto {margin-left:auto !important}
+.mr-auto {margin-right:auto !important}
+
+.page {
+    padding: 20px;
+    background-color: white;
+    margin: 50px;
+    border-radius:7px;
+    box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+}
+
+.page .page-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00000012;
+}
+
+.page .page-body {
+    padding-top: 20px;
+}
+
+.page .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.page .no-results .no-results-image {
+    height: 250px;
+    width: auto;
+}
+
+.page .no-results * {
+    color: black;
 }
 /*!
  * Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com

@@ -1,6 +1,6 @@
 * {
     font-size: 14px;
-    color: rgb(46, 45, 55);
+    color: rgb(63, 7, 23);
 }
 
 body {
@@ -10,4 +10,53 @@ body {
 a {
     text-decoration: inherit;
     color: inherit;
+}
+
+.btn.btn-primary {
+    background-color: rgb(235 0 67) !important;
+    border-color: rgb(235 0 67) !important;
+}
+
+.primary {
+    color: rgb(235 0 67) !important;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+.ml-auto {margin-left:auto !important}
+.mr-auto {margin-right:auto !important}
+
+.page {
+    padding: 20px;
+    background-color: white;
+    margin: 50px;
+    border-radius:7px;
+    box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+}
+
+.page .page-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00000012;
+}
+
+.page .page-body {
+    padding-top: 20px;
+}
+
+.page .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.page .no-results .no-results-image {
+    height: 250px;
+    width: auto;
+}
+
+.page .no-results * {
+    color: black;
 }

@@ -63,6 +63,33 @@
     padding-left: 30px;
 }
 
+.site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container {
+    position: absolute;
+    padding: 10px;
+    border-radius: 5px;
+    left: -25px;
+    background-color: white;
+    box-shadow: -2px 4px 16px -15px rgb(0 0 0 / 75%);
+    border: 1px solid #00000012;
+    width: 120px;
+    display: none;
+}
+
+.site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container .drop-item {
+    padding: 10px 0px !important;
+    width: 100%;
+    text-align: start;
+    display: block;
+}
+
+.site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container .drop-item:hover {
+    color: rgb(0 0 0 / 52%);
+}
+
+.site-header .menu .user-info-container .user-info.drop-menu:hover .drop-menu-container {
+    display: block;
+}
+
 .site-header .menu .user-info-container .user-info::before {
     content: "\F2BD";
     font-family: "Font Awesome 6 Free";

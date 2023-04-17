@@ -1,0 +1,90 @@
+form.form-container.login {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form.form-container .form-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00000012;
+}
+
+form.form-container .form-body {
+    margin: 20px 20px;
+}
+
+form.form-container .form-footer {
+    padding-top: 20px;
+    border-top: 1px solid #00000012;
+}
+
+form.form-container .form-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+form.form-container:not(.login) .form-footer button.btn {
+    min-width: 150px;
+}
+
+form.form-container:not(.login) .form-footer a.btn {
+    min-width: 100px;
+}
+
+form.form-container .form-group {
+    margin-bottom: 15px;
+}
+
+form.form-container .form-group label {
+    margin-bottom: 5px;
+}
+
+form.form-container.login .form-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.parsley-errors-list {
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.form-control.parsley-error, .form-control.parsley-error:focus {
+    border: 2px solid rgb(166 72 226);
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.parsley-errors-list * {
+    color: rgb(166 72 226) !important;
+    font-size: 12px !important;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
+
+.form-check-input:checked {
+    background-color: rgb(235 0 67);
+    border-color: rgb(235 0 67);
+}
+
+.form-check-input:focus {
+    border-color: rgb(235 0 67);
+    box-shadow: none;
+}
+
+.form-check {
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.form-check label {
+    margin: 0px !important;
+}
+

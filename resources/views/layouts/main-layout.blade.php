@@ -15,14 +15,31 @@
         <div class="menu">
 
             <a class="menu-item" href="{{ url('rent-car') }}">Alugar</a>
-            <a class="menu-item" href="{{ url('ad') }}">Anunciar</a>
+            <a class="menu-item" href="{{ url('create-ad') }}">Anunciar</a>
 
             <div class="user-info-container">
 
                 @if ($user)
-                    <div class="menu-item user-info">{{ $user->name }}</div>
+                    <div class="menu-item user-info drop-menu">
+
+                        {{ $user->name }}
+
+                        <div class="drop-menu-container">
+
+                            <a class="drop-item" href="{{ url('profile') }}">Meu Perfil</a>
+                            <a class="drop-item" href="{{ url('my-ads') }}" class="">Meus Anúncios</a>
+                            <a class="drop-item" href="{{ url('my-rents') }}" class="">Meus Aluguéis</a>
+
+                            <form class="" method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="drop-item btn btn-outline" class="btn btn-outline" type="submit"> Sair </button>
+                            </form>
+
+                        </div>
+
+                    </div>
                 @else
-                    <a class="menu-item user-info" href="{{ 'login' }}"> Entrar </a>
+                    <a class="menu-item user-info" href="{{ url('login') }}"> Entrar </a>
                 @endif
 
             </div>
@@ -38,7 +55,9 @@
 
     <div class="site-body">
 
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
 
     </div>
 
@@ -53,7 +72,7 @@
             <div class="left-content">
                 <span>Rent</span>
                 <a class="menu-item" href="{{ url('rent-car') }}">Alugar</a>
-                <a class="menu-item" href="{{ url('ad') }}">Anunciar</a>
+                <a class="menu-item" href="{{ url('create-ad') }}">Anunciar</a>
             </div>
 
             <div class="right-content">
