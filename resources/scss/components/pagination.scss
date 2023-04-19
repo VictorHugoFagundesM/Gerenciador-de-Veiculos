@@ -1,0 +1,16 @@
+.pagination-container nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-container .page-item:not(.active) .page-link {
+    color: rgb(63, 7, 23);
+}
+
+.pagination-container .page-item.active .page-link {
+    background-color: rgb(46, 45, 55);
+    border-color: rgb(46, 45, 55);
+}
+
+

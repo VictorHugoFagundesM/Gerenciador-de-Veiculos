@@ -1,0 +1,12 @@
+.page-home {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.page-home .side-filters {
+    height: calc(100vh - 110px - 70px);
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+}

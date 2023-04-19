@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page ad-page">
+    <div class="page page-ad">
 
         <div class="page-header">
 
@@ -24,43 +24,50 @@
 
         <div class="page-body">
 
-            @if (count($ads))
+            <div class="items-container">
 
-                @foreach ( $ads as $ad )
+                @if (count($ads))
 
-                    <div class="card" style="width: 18rem;">
+                    @foreach ( $ads as $ad )
 
-                        <img class="card-img-top" src="{{ asset($ad->image_path ?? 'img/default-image.jpg')  }}" alt="Card image cap">
+                        <div class="card" style="width: 18rem;">
 
-                        <div class="card-body">
+                            <img class="card-img-top" src="{{ asset($ad->image_path ?? 'img/default-image.jpg')  }}" alt="Card image cap">
 
-                            <h5 class="card-title">{{$ad->name. " - " . $ad->year}}</h5>
-                            <p>{{$ad->vehicle_type_name. " - " . $ad->brand_name}}</p>
+                            <div class="card-body">
 
-                            @if ($ad->informations)
-                                <p class="card-text">{{$ad->informations}}</p>
-                            @endif
+                                <h5 class="card-title">{{$ad->name. " - " . $ad->year}}</h5>
+                                <p>{{$ad->vehicle_type_name. " - " . $ad->brand_name}}</p>
 
-                            <div class="row">
-                                <a href="{{url("edit-ad/$ad->id")}}" class="btn btn-outline-dark col-5 ml-auto mr-auto">Editar</a>
-                                <a href="#" class="btn btn-primary col-5 ml-auto mr-auto">Ver</a>
+                                @if ($ad->informations)
+                                    <p class="card-text">{{$ad->informations}}</p>
+                                @endif
+
+                                <div class="row">
+                                    <a href="{{url("edit-ad/$ad->id")}}" class="btn btn-outline-dark col-5 ml-auto mr-auto">Editar</a>
+                                    <a href="#" class="btn btn-primary col-5 ml-auto mr-auto">Ver</a>
+                                </div>
+
                             </div>
 
                         </div>
 
+                    @endforeach
+
+                @else
+
+                    <div class="no-results">
+                        <img class="no-results-image" src="{{asset('img/Curious-cuate.png')}}">
+                        <div class="text-center w-100 mb-5"> Nenhum anúncio encontrado para os filtros selecionados. </div>
                     </div>
 
-                @endforeach
+                @endif
 
-            @else
+            </div>
 
-                <div class="no-results">
-                    <img class="no-results-image" src="{{asset('img/Curious-cuate.png')}}">
-                    <div class="text-center w-100 mb-5"> Não foi encontrado nenhum anúncio para os filtros selecionados. </div>
-                </div>
-
-            @endif
-
+            <div class="pagination-container">
+                {{ $ads->links() }}
+            </div>
 
         </div>
 

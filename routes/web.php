@@ -1,15 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('pages/home');
-});
 
-Route::get('/home', function () {
-    return view('pages/home');
-})->middleware(['auth'])->name('home');
+Route::get('/',     [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
 
@@ -21,7 +18,6 @@ Route::middleware('auth')->group(function () {
     // TODO remover anúncio
     Route::delete ('ad/{id}',      [AdController::class, 'delete']);
     Route::delete ('ad-info/{id}',      [AdController::class, 'delete']);
-
 
 });
 

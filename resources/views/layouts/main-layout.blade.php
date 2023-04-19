@@ -1,5 +1,9 @@
 @extends('template')
 
+@php
+    $hasContainer = isset($hasContainer) ? $hasContainer : true;
+@endphp
+
 @section('header-content')
 
     <div class="site-header">
@@ -55,9 +59,15 @@
 
     <div class="site-body">
 
-        <div class="container">
+        @if ($hasContainer)
+
+            <div class="container">
+                @yield('content')
+            </div>
+
+        @else
             @yield('content')
-        </div>
+        @endif
 
     </div>
 

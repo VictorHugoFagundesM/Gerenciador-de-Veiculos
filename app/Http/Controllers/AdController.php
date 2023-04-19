@@ -103,7 +103,7 @@ class AdController extends Controller {
             'year' =>  ['required', 'string', 'max:10'],
             'color' => ['required', 'string', 'max:10'],
             'price_per_day' =>  ['required'],
-            'informations' => ['nullable', 'string', 'max:400'],
+            'informations' => ['nullable', 'string', 'max:1000'],
         ]);
 
         return $validator;
@@ -194,8 +194,6 @@ class AdController extends Controller {
         $ad->color                = $request->color;
         $ad->price_per_day        = $request->price_per_day;
         $ad->informations         = $request->informations;
-
-        $teste = Carbon::createFromFormat('d/m/Y', $request->begin_avaliable_date);
 
         $ad->begin_avaliable_date = Carbon::createFromFormat('d/m/Y', $request->begin_avaliable_date)->toDateTimeString();;
         $ad->end_avaliable_date   = Carbon::createFromFormat('d/m/Y', $request->end_avaliable_date)->toDateTimeString();;

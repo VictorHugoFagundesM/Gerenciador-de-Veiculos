@@ -16,7 +16,7 @@ class Ad extends Model
      * @param [type] $request
      * @return void
      */
-    public function scopeSearch($query, $userId, $request = null) {
+    public function scopeSearch($query, $userId = null, $request = null) {
 
         $query->from("ads as a")
         ->join("brands as b", "b.id", "a.brand_id")
@@ -36,7 +36,10 @@ class Ad extends Model
 
         }
 
-        $query->where("user_id", $userId);
+        if ($userId) {
+            $query->where("user_id", $userId);
+        }
+
 
     }
 

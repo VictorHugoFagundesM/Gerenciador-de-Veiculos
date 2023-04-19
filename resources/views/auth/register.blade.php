@@ -20,12 +20,12 @@
 
                     <div class="form-group col-12 col-md-6">
                         <label>Nome</label>
-                        <input type="text" name="name" class="form-control" required placeholder="Informe seu nome" maxlength="60">
+                        <input type="text" name="name" class="form-control" required value="{{old('name')}}" placeholder="Informe seu nome" maxlength="60">
                     </div>
 
                     <div class="form-group col-12 col-md-6">
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" required placeholder="Informe o email" maxlength="30">
+                        <input type="email" name="email" class="form-control" value="{{old('email')}}" required placeholder="Informe o email" maxlength="30">
                     </div>
 
                 </div>
@@ -34,7 +34,7 @@
                     {{-- TODO colocar máscara de telefone --}}
                     <div class="form-group col-12 col-md-6">
                         <label>Telefone</label>
-                        <input type="phone" name="phone" class="form-control" required placeholder="Informe o telefone" maxlength="12">
+                        <input type="phone" name="phone" class="form-control" value="{{old('phone')}}" required placeholder="Informe o telefone" maxlength="12">
                     </div>
 
                 </div>
@@ -48,7 +48,7 @@
 
                     <div class="form-group col-12 col-md-6">
                         <label>Confirmar Senha</label>
-                        <input type="password" name="new-password" class="form-control" required minlength="8" placeholder="Informe a senha" data-parsley-equalto="#password">
+                        <input type="password" name="password_confirmation" class="form-control" required minlength="8" placeholder="Informe a senha" data-parsley-equalto="#password">
                     </div>
 
                 </div>

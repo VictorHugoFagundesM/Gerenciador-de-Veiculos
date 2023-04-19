@@ -23,7 +23,7 @@ class CreateAdsTable extends Migration
             $table->string('year', 10);
             $table->string('color', 20);
             $table->double('price_per_day', 8, 2);
-            $table->string('informations', 400)->nullable();
+            $table->string('informations', 1000)->nullable();
             $table->timestamp('begin_avaliable_date');
             $table->timestamp('end_avaliable_date');
             $table->timestamps();

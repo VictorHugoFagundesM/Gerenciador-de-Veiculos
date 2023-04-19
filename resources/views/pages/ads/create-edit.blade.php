@@ -6,8 +6,6 @@
 
         <form class="form-container" method="POST" action="{{ url('ad') }}" data-parsley-validate="">
 
-            @dd(url()->previous())
-
             @include('components._alert', ['oneError' => true ])
             @method( $ad->id ? "PUT" : "POST" )
 
@@ -61,7 +59,7 @@
                             <option selected>Selecione o tipo do veículo</option>
 
                             @foreach ($types as $t )
-                                <option value="{{$t->id}}" {{ old('vehicle_type_id', $ad->vehicle_type_id) ? "selected" : '' }}>{{$t->name}}</option>
+                                <option value="{{$t->id}}" {{ old('vehicle_type_id', $ad->vehicle_type_id) == $t->id ? "selected" : '' }}>{{$t->name}}</option>
                             @endforeach
 
                         </select>
@@ -77,7 +75,7 @@
                             <option selected>Selecione a marca do veículo</option>
 
                             @foreach ($brands as $b )
-                                <option value="{{$b->id}}" {{ old('brand_id', $ad->brand_id) ? "selected" : '' }}>{{$b->name}}</option>
+                                <option value="{{$b->id}}" {{ old('brand_id', $ad->brand_id) == $b->id ? "selected" : '' }}>{{$b->name}}</option>
                             @endforeach
 
                         </select>
@@ -136,8 +134,8 @@
             </div>
 
             <div class="form-footer">
-                <a href="{{ url('home') }}" class="btn btn-outline-dark mr-auto">Voltar</a>
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <a href="{{ url()->previous() }}" class="btn btn-outline-dark mr-auto">Voltar</a>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
 
         </form>

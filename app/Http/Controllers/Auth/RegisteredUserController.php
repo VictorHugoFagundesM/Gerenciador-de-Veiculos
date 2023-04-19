@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,31 +35,35 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        try {
 
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        if (!$validator->fails()) {
-
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'password' => Hash::make($request->password),
+            $validator = Validator::make($request->all(), [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'phone' => ['required', 'string', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
             ]);
 
-            event(new Registered($user));
+            if (!$validator->fails()) {
 
-            Auth::login($user);
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'password' => Hash::make($request->password),
+                ]);
 
-            return redirect(RouteServiceProvider::HOME);
+                event(new Registered($user));
+
+                Auth::login($user);
+
+                return redirect(RouteServiceProvider::HOME);
+            }
+
+            return back()->withErrors('Não foi possível completar o registro: '. $validator->errors()->first())->withInput();
+
+        } catch (Exception $e) {
+            return back()->withErrors('Ocorreu um problema inesperado ao completar o registro, tente novamente mais tarde ou contate um admnistrador.')->withInput();
         }
-
-        return back()->withErrors('Não foi possível completar o registro: '. $validator->errors()->first())->withInput();
-
     }
 }

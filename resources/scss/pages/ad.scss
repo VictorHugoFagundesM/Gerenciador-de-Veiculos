@@ -1,0 +1,29 @@
+.page.page-ad .page-body .items-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.page.page-ad .page-body .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.page.page-ad .page-body .card-body .row {
+    margin-top: auto;
+}
+
+.page.page-ad .page-body .card {
+    width: 200px !important;
+}
+
+.page.page-ad .page-body .card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page.page-ad .page-body .no-results {
+    margin: auto;
+}

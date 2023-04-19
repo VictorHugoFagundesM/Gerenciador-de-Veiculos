@@ -156,11 +156,21 @@
 }
 
 
-form.form-container.login {
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+.pagination-container nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
+
+.pagination-container .page-item:not(.active) .page-link {
+    color: rgb(63, 7, 23);
+}
+
+.pagination-container .page-item.active .page-link {
+    background-color: rgb(46, 45, 55);
+    border-color: rgb(46, 45, 55);
+}
+
 
 form.form-container .form-header {
     padding-bottom: 20px;
@@ -246,6 +256,47 @@ form.form-container.login .form-footer {
     margin: 0px !important;
 }
 
+.page.page-ad .page-body .items-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.page.page-ad .page-body .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.page.page-ad .page-body .card-body .row {
+    margin-top: auto;
+}
+
+.page.page-ad .page-body .card {
+    width: 200px !important;
+}
+
+.page.page-ad .page-body .card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page.page-ad .page-body .no-results {
+    margin: auto;
+}
+.page-home {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.page-home .side-filters {
+    height: calc(100vh - 110px - 70px);
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+}
 * {
     font-size: 14px;
     color: rgb(63, 7, 23);
@@ -307,6 +358,16 @@ ul {
 
 .page .no-results * {
     color: black;
+}
+
+.page-login {
+    max-width: 400px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: rgb(63, 7, 23) !important;
 }
 /*!
  * Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com

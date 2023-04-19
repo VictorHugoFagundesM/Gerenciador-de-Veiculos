@@ -29,7 +29,7 @@
 
                     <div class="form-group col-12">
                         <label>Senha</label>
-                        <input type="password" name="password" class="form-control" required minlength="8" placeholder="Informe a senha">
+                        <input type="password" name="password" class="form-control" required  placeholder="Informe a senha">
                     </div>
 
                 </div>
