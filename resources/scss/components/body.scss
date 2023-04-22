@@ -2,4 +2,28 @@
     min-height: calc(100vh - 110px - 70px);
     background-color: rgb(224 225 235);
     overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.site-body > div > div {
+    z-index: 2;
+    position: relative;
+}
+
+.site-body:not(.no-bg)::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../../img/bg-image.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.1;
+}
+
+.site-body.no-footer {
+    min-height: calc(100vh - 70px);
 }

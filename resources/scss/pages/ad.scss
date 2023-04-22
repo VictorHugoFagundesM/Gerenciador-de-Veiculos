@@ -27,3 +27,21 @@
 .page.page-ad .page-body .no-results {
     margin: auto;
 }
+
+.page.page-ad-info {
+}
+
+.page.page-ad-rent, .page.page-ad-info {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: fit-content;
+}
+
+.page.page-ad-info .page-body .ad-info:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.page.page-ad-info .page-body .ad-info div {
+    font-weight: 500;
+    font-size: 16px;
+}

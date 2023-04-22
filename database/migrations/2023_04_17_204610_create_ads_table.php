@@ -18,7 +18,7 @@ class CreateAdsTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->foreignId('brand_id')->nullable();
             $table->foreignId('vehicle_type_id')->nullable();
-            $table->boolean('is_avaliable');
+            $table->boolean('is_avaliable')->default(false);
             $table->string('name', 80);
             $table->string('year', 10);
             $table->string('color', 20);

@@ -1,6 +1,6 @@
 * {
     font-size: 14px;
-    color: rgb(63, 7, 23);
+    color: rgb(39, 3, 13);
 }
 
 body {
@@ -13,8 +13,13 @@ a {
 }
 
 .btn.btn-primary {
-    background-color: rgb(235 0 67) !important;
-    border-color: rgb(235 0 67) !important;
+    background-color: rgba(235, 0, 67, 0.75) !important;
+    border-color: rgba(235, 0, 67, 0.75) !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: rgba(235, 0, 67) !important;
+    border-color: rgba(235, 0, 67) !important;
 }
 
 .primary {
@@ -68,5 +73,7 @@ ul {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    color: rgb(63, 7, 23) !important;
+    color: rgb(39, 3, 13) !important;
 }
+
+.gap-20 {gap: 20px;}

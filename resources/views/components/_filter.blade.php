@@ -19,7 +19,7 @@
 
                 <select class="input form-select col-12 col-md-6" name="paginate">
 
-                    <option>Selecione o tipo do veículo</option>
+                    <option value="">Selecione o tipo do veículo</option>
 
                     @foreach ($quantities as $qty )
                         <option value="{{ $qty }}" {{ $paginate && $paginate == $qty ? "selected" : '' }}> {{ $qty }} </option>

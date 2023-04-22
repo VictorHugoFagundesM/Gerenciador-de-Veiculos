@@ -102,21 +102,27 @@
                 <div class="row">
 
                     <div class="form-group col-12 col-md-6">
-                        <label>Disponível para aluguel a partir de</label>
+                        <label>Data inicial</label>
+                        @php
+                            $beginDate = $ad->end_avaliable_date ? Carbon\Carbon::parse($ad->begin_avaliable_date) : '';
+                        @endphp
                         <input type="text"
                             name="begin_avaliable_date" class="form-control date"
-                            required placeholder="Informe o ano do veículo"
-                            value="{{old('begin_avaliable_date', Carbon\Carbon::parse($ad->begin_avaliable_date)->format('d/m/Y')) ?? date('d/m/Y') }}"
+                            required placeholder="Disponível a partir de"
+                            value="{{old('begin_avaliable_date', $beginDate) ? old('begin_avaliable_date', $beginDate)->format('d/m/Y') : ''}}"
                             maxlength="10"
                         >
                     </div>
 
                     <div class="form-group col-12 col-md-6">
-                        <label>Disponível para aluguel até</label>
+                        <label>Data final</label>
+                        @php
+                            $endDate = $ad->end_avaliable_date ? Carbon\Carbon::parse($ad->begin_avaliable_date) : '';
+                        @endphp
                         <input type="text"
                             name="end_avaliable_date" class="form-control date" required
-                            placeholder="Informe o ano do veículo"
-                            value="{{ old('end_avaliable_date', Carbon\Carbon::parse($ad->end_avaliable_date)->format('d/m/Y')) ?? date('d/m/Y') }}"
+                            placeholder="Disponível até"
+                            value="{{old('end_avaliable_date', $endDate) ? old('end_avaliable_date', $endDate)->format('d/m/Y') : ''}}"
                             maxlength="10"
                         >
                     </div>

@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -33,7 +34,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request, $fromApi = null)
     {
         try {
 
@@ -57,13 +58,31 @@ class RegisteredUserController extends Controller
 
                 Auth::login($user);
 
-                return redirect(RouteServiceProvider::HOME);
+                if ($fromApi) {
+                    return response()->json($user, Response::HTTP_OK);
+
+                } else {
+                    return redirect(RouteServiceProvider::HOME);
+                }
+
             }
 
-            return back()->withErrors('Não foi possível completar o registro: '. $validator->errors()->first())->withInput();
+            if ($fromApi) {
+                return response()->json($validator->errors()->first(), Response::HTTP_BAD_REQUEST);
+
+            } else {
+                return back()->withErrors('Não foi possível completar o registro: '. $validator->errors()->first())->withInput();
+            }
 
         } catch (Exception $e) {
-            return back()->withErrors('Ocorreu um problema inesperado ao completar o registro, tente novamente mais tarde ou contate um admnistrador.')->withInput();
+
+            if($fromApi) {
+                return response()->json($e->getMessage(), Response::HTTP_BAD_REQUEST);
+
+            } else {
+                return back()->withErrors('Ocorreu um problema inesperado ao completar o registro, tente novamente mais tarde ou contate um admnistrador.')->withInput();
+            }
+
         }
     }
 }

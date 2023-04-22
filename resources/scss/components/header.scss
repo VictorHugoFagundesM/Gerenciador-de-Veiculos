@@ -1,6 +1,7 @@
 .site-header {
     min-height: 70px;
     height: 70px;
+    max-height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -73,6 +74,7 @@
     border: 1px solid #00000012;
     width: 120px;
     display: none;
+    z-index: 5;
 }
 
 .site-header .menu .user-info-container .user-info.drop-menu .drop-menu-container .drop-item {

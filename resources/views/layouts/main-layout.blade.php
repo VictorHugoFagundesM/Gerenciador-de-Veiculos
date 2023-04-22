@@ -2,6 +2,8 @@
 
 @php
     $hasContainer = isset($hasContainer) ? $hasContainer : true;
+    $hasFooter = isset($hasFooter) ? $hasFooter : true;
+    $hasBg = isset($hasBg) ? $hasBg : true;
 @endphp
 
 @section('header-content')
@@ -18,8 +20,10 @@
 
         <div class="menu">
 
-            <a class="menu-item" href="{{ url('rent-car') }}">Alugar</a>
+            <a class="menu-item" href="{{ url('/') }}">Alugar</a>
             <a class="menu-item" href="{{ url('create-ad') }}">Anunciar</a>
+            <a class="menu-item" href="{{ url('my-ads') }}" class="">Meus Anúncios</a>
+            <a class="menu-item" href="{{ url('my-rents') }}" class="">Meus Aluguéis</a>
 
             <div class="user-info-container">
 
@@ -31,8 +35,6 @@
                         <div class="drop-menu-container">
 
                             <a class="drop-item" href="{{ url('profile') }}">Meu Perfil</a>
-                            <a class="drop-item" href="{{ url('my-ads') }}" class="">Meus Anúncios</a>
-                            <a class="drop-item" href="{{ url('my-rents') }}" class="">Meus Aluguéis</a>
 
                             <form class="" method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -57,17 +59,11 @@
 
 @section('body-content')
 
-    <div class="site-body">
+    <div class="site-body {{$hasFooter ? '' : 'no-footer'}} {{$hasBg ? '' : 'no-bg'}}">
 
-        @if ($hasContainer)
-
-            <div class="container">
-                @yield('content')
-            </div>
-
-        @else
+        <div class="{{ $hasContainer ? 'container' : ''}}">
             @yield('content')
-        @endif
+        </div>
 
     </div>
 
@@ -75,31 +71,35 @@
 
 @section('footer-content')
 
-    <div class="site-footer">
+    @if ($hasFooter)
 
-        <div class="first-row">
+        <div class="site-footer">
 
-            <div class="left-content">
-                <span>Rent</span>
-                <a class="menu-item" href="{{ url('rent-car') }}">Alugar</a>
-                <a class="menu-item" href="{{ url('create-ad') }}">Anunciar</a>
+            <div class="first-row">
+
+                <div class="left-content">
+                    <span>Rent</span>
+                    <a class="menu-item" href="{{ url('rent-car') }}">Alugar</a>
+                    <a class="menu-item" href="{{ url('create-ad') }}">Anunciar</a>
+                </div>
+
+                <div class="right-content">
+                    <a class="menu-item" href="https://www.instagram.com/victor.fagundes1/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a class="menu-item" href="https://www.linkedin.com/in/victor-fagundes-bb797a203/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+
             </div>
 
-            <div class="right-content">
-                <a class="menu-item" href="https://www.instagram.com/victor.fagundes1/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a class="menu-item" href="https://www.linkedin.com/in/victor-fagundes-bb797a203/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <div class="second-row">
+
+                <span>
+                    © Feito por Victor Fagundes
+                </span>
+
             </div>
 
         </div>
 
-        <div class="second-row">
-
-            <span>
-                © Feito por Victor Fagundes
-            </span>
-
-        </div>
-
-    </div>
+    @endif
 
 @endsection

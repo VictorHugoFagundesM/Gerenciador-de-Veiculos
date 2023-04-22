@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Brand;
+use App\Models\User;
 use App\Models\VehicleType;
 use Carbon\Carbon;
 use Exception;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 /**
- * Undocumented class
+ * Controller da entidade ads
  *
  * @author Victor Hugo Fagundes Miranda <victorhugofmiranda@gmail.com>
  * @since 16/04/2023
@@ -195,10 +196,51 @@ class AdController extends Controller {
         $ad->price_per_day        = $request->price_per_day;
         $ad->informations         = $request->informations;
 
-        $ad->begin_avaliable_date = Carbon::createFromFormat('d/m/Y', $request->begin_avaliable_date)->toDateTimeString();;
-        $ad->end_avaliable_date   = Carbon::createFromFormat('d/m/Y', $request->end_avaliable_date)->toDateTimeString();;
+        $ad->begin_avaliable_date = Carbon::createFromFormat('d/m/Y', $request->begin_avaliable_date)->toDateString();
+        $ad->end_avaliable_date   = Carbon::createFromFormat('d/m/Y', $request->end_avaliable_date)->toDateString();
 
         $ad->save();
+    }
+
+    public function delete($adId) {
+        $user = Auth::user();
+        $ad = Ad::where(["id" => $adId, "user_id" => $user->id])->first();
+
+        if ($ad) {
+            $ad->delete();
+            return back()->with("succes", "Anúncio removido com sucesso!");
+        }
+
+        return back()->withErrors("Não é possível remover este anúncio.");
+    }
+
+    /**
+     * Mostra a tela de visualização do Anúncio
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function info(int $id) {
+
+        $ad = Ad::find($id);
+
+        if ($ad) {
+
+            $data = [
+                "ad" => $ad,
+            ];
+
+            return view("pages.ads.info", $data);
+
+        } else {
+            return back();
+        }
+
+    }
+
+    public function get() {
+        $users = User::all();
+        return response()->json($users);
     }
 
 }
